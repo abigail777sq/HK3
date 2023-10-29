@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.domain.CourseAssessmentDetails;
 import com.example.demo.domain.CourseAssessmentDetailsService;
-import com.example.demo.domain.Professor;
 import com.example.demo.domain.ProfessorService;
 
 @RestController
@@ -37,8 +37,12 @@ public class CourseAssessmentDetailsController {
     }
     @PostMapping
     public CourseAssessmentDetails createCourseAssessmentDetails(@RequestBody CourseAssessmentDetails courseAssessmentDetails) {
-       
-        // Finalmente, guarda el CourseAssessmentDetails
         return courseAssessmentDetailsService.saveCourseAssessment(courseAssessmentDetails);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteCourseAssessmentDetails(@PathVariable Long id){
+            courseAssessmentDetailsService.deleteCourseAssessmentDetails(id);
+             new ResponseEntity<>(HttpStatus.OK);
+        
     }
 }
