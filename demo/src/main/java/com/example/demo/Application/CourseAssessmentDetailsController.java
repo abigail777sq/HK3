@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.domain.CourseAssessmentDetails;
 import com.example.demo.domain.CourseAssessmentDetailsService;
-import com.example.demo.domain.ProfessorService;
 
 @RestController
 @RequestMapping("/CoursesAssessmentDetails")
@@ -26,8 +25,7 @@ public class CourseAssessmentDetailsController {
     @Autowired
     CourseAssessmentDetailsService courseAssessmentDetailsService;
     @Autowired
-    ProfessorService professorService;
-       @GetMapping
+      @GetMapping
     public ResponseEntity<List<CourseAssessmentDetails>> getAllCourses() {
         return new ResponseEntity<>(courseAssessmentDetailsService.findAllCourseAssessment(), HttpStatus.OK);
     }
@@ -57,4 +55,5 @@ public class CourseAssessmentDetailsController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }    
+
 }
