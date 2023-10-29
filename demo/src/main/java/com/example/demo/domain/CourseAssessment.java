@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,9 +13,9 @@ public class CourseAssessment{
 long Id;
 String title;
 
-@OneToOne
+@OneToOne(cascade = CascadeType.ALL)
 Periodo periodo;
-@OneToOne
+@OneToOne(cascade = CascadeType.ALL)
 Course course;
 
 String tipoNota;

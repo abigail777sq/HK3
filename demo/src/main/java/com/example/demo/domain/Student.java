@@ -42,6 +42,6 @@ public Student(String name, String email, String code) {
     this.code = code;
 }
 
- 
+ public Student(){};
     
 }
